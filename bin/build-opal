@@ -1,0 +1,46 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+Bundler.require(:default, :development)
+
+root = Pathname(__dir__).join('..')
+watch = ARGV.include? '--watch'
+
+source_dir = root.join('app', 'javascript', 'opal')
+target_dir = root.join('app', 'assets', 'builds', 'opal')
+logger = Logger.new(STDOUT)
+logger.level = Logger::DEBUG
+
+unless source_dir.join('application.js.rb').exist?
+  source_dir.join('application.js.rb').write <<~RUBY
+    require "opal"
+    puts "Hello from Opal!"
+  RUBY
+end
+
+source_dir.mkpath
+target_dir.mkpath
+
+ENV['OPAL_DISABLE_PREFORK_LOGS'] = 'true'
+Opal.append_path source_dir.to_s
+
+BuildOpal = ->(*args) do
+  p changes: args
+  builder = Opal::Builder.new
+  builder.build('application')
+  target_dir.join('application.js').tap{logger.info "[opal] Writing #{_1}"}.write(builder.to_s + "\n//# sourceMappingURL=application.js.map")
+  target_dir.join('application.js.map').tap{logger.info "[opal] Writing #{_1}"}.write(builder.source_map.to_json)
+rescue Opal::SyntaxError, StandardError => e
+  require 'json'
+  target_dir.join('application.js').tap{logger.info "[opal] Error #{_1}"}.write("console.error(#{e.to_json}, #{e.backtrace.to_json})")
+end
+
+BuildOpal.call
+
+if watch
+  puts "Watching #{source_dir}..."
+  listener = Listen.to(source_dir.to_s, only: /\.rb$/, &BuildOpal)
+  listener.start
+  trap('INT', 'EXIT')
+  sleep
+end

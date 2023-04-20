@@ -96,3 +96,9 @@ group :development, :test do
   gem "rubocop-rails", "~> 2.3"
   gem "rubocop-rspec", "~> 2.0"
 end
+
+gem "opal", "~> 1.7"
+
+gem "listen", "~> 3.8", :group => :development
+
+gem "opal-browser", "~> 0.3.3", :github => "opal/opal-browser"

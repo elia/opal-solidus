@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/opal/opal-browser.git
+  revision: 412ffe8e07f996547550a6217e4cc78f0864ff84
+  specs:
+    opal-browser (0.3.3)
+      opal (>= 1.0, < 2.0)
+      paggio (>= 0.3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -186,6 +194,9 @@ GEM
       terrapin (~> 0.6.0)
     launchy (2.5.2)
       addressable (~> 2.8)
+    listen (3.8.0)
+      rb-fsevent (~> 0.10, >= 0.10.3)
+      rb-inotify (~> 0.9, >= 0.9.10)
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -221,7 +232,11 @@ GEM
     nokogiri (1.15.0-arm64-darwin)
       racc (~> 1.4)
     omnes (0.2.2)
+    opal (1.7.3)
+      ast (>= 2.3.0)
+      parser (~> 3.0, >= 3.0.3.2)
     orm_adapter (0.5.0)
+    paggio (0.3.0)
     parallel (1.23.0)
     parser (3.2.2.1)
       ast (~> 2.4.1)
@@ -271,6 +286,9 @@ GEM
       activerecord (>= 6.0.4)
       activesupport (>= 6.0.4)
       i18n
+    rb-fsevent (0.11.2)
+    rb-inotify (0.10.1)
+      ffi (~> 1.0)
     redis (4.8.1)
     regexp_parser (2.8.0)
     reline (0.3.3)
@@ -468,6 +486,9 @@ DEPENDENCIES
   ffaker (~> 2.13)
   importmap-rails
   jbuilder
+  listen (~> 3.8)
+  opal (~> 1.7)
+  opal-browser (~> 0.3.3)!
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
   rails-controller-testing (~> 1.0.5)
