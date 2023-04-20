@@ -1,2 +1,4 @@
 require "opal"
-puts "Hello from Opal!"
+require "stimulus"
+require_tree "./controllers"
+Stimulus::Controller.register_all!
