@@ -414,6 +414,9 @@ GEM
       ransack (~> 2.0)
       sprockets-rails
       state_machines-activerecord (~> 0.6)
+    solidus_i18n (2.2.0)
+      solidus_core (>= 1.1, < 5)
+      solidus_support (~> 0.4)
     solidus_sample (4.0.0)
       solidus_core (= 4.0.0)
     solidus_support (0.9.1)
@@ -502,6 +505,7 @@ DEPENDENCIES
   selenium-webdriver
   solidus (~> 4.0)
   solidus_auth_devise (~> 2.5)
+  solidus_i18n (~> 2.2)
   solidus_support
   sprockets-rails
   sqlite3 (~> 1.4)

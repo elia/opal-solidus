@@ -102,3 +102,5 @@ gem "opal", "~> 1.7"
 gem "listen", "~> 3.8", :group => :development
 
 gem "opal-browser", "~> 0.3.3", :github => "opal/opal-browser"
+
+gem "solidus_i18n", "~> 2.2"
