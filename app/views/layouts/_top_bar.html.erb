@@ -1,4 +1,8 @@
-<div class="top-bar" data-controller="top-bar">
+<div
+  class="top-bar"
+  data-controller="top-bar"
+  data-top-bar-cart-url-value="<%= cart_link_path %>"
+>
   <figure class="logo">
     <%= link_to image_tag(Spree::Config[:logo]), root_path %>
   </figure>
