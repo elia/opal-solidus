@@ -1,0 +1,44 @@
+.address-step {
+  margin-top: 2rem;
+
+  &__billing,
+  &__shipping {
+    background: $color-background-lighter;
+    border: solid 1px $color-border-light;
+    margin-bottom: 2rem;
+    padding: 3rem 1.5rem;
+
+    > legend {
+      font-size: $font-size-small;
+      font-weight: $font-weight-bolder;
+      text-transform: uppercase;
+    }
+
+    fieldset.address-inputs {
+      border: none;
+      margin: 0;
+      padding: 0;
+    
+      > div {
+        margin: 1.5rem 0;
+    
+        &:first-child {
+          margin-top: 0;
+        }
+    
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    
+      &[disabled] {
+        display: none;
+      }
+    }
+  }
+
+  &__actions {
+    margin-top: 2rem;
+  }
+
+}
