@@ -1,24 +1,18 @@
-# README
+# Setup instructions
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Adjust the ruby version in the Gemfile to match your local ruby version.
 
-Things you may want to cover:
+Then run the following commands:
 
-* Ruby version
+```
+bin/setup
+bin/rails db:seed
+bin/rails spree_sample:load
+```
 
-* System dependencies
+And finally start the server:
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+bin/rails s
+open http://localhost:3000
+```
